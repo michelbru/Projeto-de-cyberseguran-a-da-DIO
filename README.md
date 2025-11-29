@@ -238,11 +238,10 @@ Pena: até 5 anos de reclusão + multa
 
 ## 📚 Referências e Materiais
 
-- [DIO - Bootcamp Cybersegurança](https://www.dio.me/)
+- [DIO - Bootcamp Cybersegurança]([https://www.dio.me/](https://web.dio.me/track/santander-ciberseguranca-2025))
 - [Documentação Cryptography](https://cryptography.io/)
 - [Documentação pynput](https://pynput.readthedocs.io/)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
 
 ---
 
@@ -263,9 +262,8 @@ Se você também está estudando cybersegurança, fique à vontade para:
 Desenvolvido com 🧠 durante minha jornada de aprendizado em Cybersegurança.
 
 **Conecte-se comigo:**
-- LinkedIn: [seu-perfil]
-- GitHub: [seu-usuario]
-- Email: [seu-email]
+- LinkedIn: https://br.linkedin.com/in/michel-pascoal
+- GitHub: https://github.com/michelbru
 
 ---
 
