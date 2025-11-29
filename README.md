@@ -1,174 +1,289 @@
-<div align="center">
-  <img height="150" src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" />
-</div>
+# 🔐 Simulação de Malwares - Projeto Educacional
 
-###
-
-<div align="center">
-  <a href="https://www.linkedin.com/in/SEU-LINKEDIN" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo"/>
-  </a>
-  <a href="https://www.youtube.com/SEU-YOUTUBE" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Youtube&logo=youtube&label=&color=FF0000&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="youtube logo"/>
-  </a>
-  <a href="https://twitter.com/SEU-TWITTER" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="twitter logo"/>
-  </a>
-</div>
-
-###
-
-<h1 align="center">🔐 Simulação de Malwares - Projeto Educacional</h1>
+Projeto desenvolvido durante o bootcamp de Cybersegurança da DIO para entender na prática como funcionam malwares e como se proteger deles.
 
 > ⚠️ **AVISO IMPORTANTE**: Este repositório é exclusivamente educacional. Execute apenas em ambientes controlados e isolados. O uso malicioso é crime.
 
 ---
 
-<h3 align="left">👨‍💻 Sobre o Projeto</h3>
+## 📌 Sobre o Projeto
 
-<p align="left">
-Este projeto foi desenvolvido durante o bootcamp de Cybersegurança da DIO com o objetivo de entender, de maneira prática, como funcionam malwares e como podemos nos defender deles.<br><br>
-Dois tipos de malware foram simulados:<br>
-✔ Ransomware — criptografa arquivos e exige “resgate”<br>
-✔ Keylogger — captura teclas digitadas no teclado<br><br>
-Todos os testes foram feitos em ambiente seguro e isolado.
-</p>
+Durante o curso, aprendi que a melhor forma de se defender de ameaças é entendendo como elas funcionam. Este projeto simula dois tipos comuns de malware:
 
----
+- **Ransomware**: Criptografa arquivos e exige "resgate"
+- **Keylogger**: Captura tudo que é digitado no teclado
 
-<h3 align="left">🎯 Objetivos de Aprendizado</h3>
-
-- Entender criptografia simétrica
-- Captura de eventos do sistema operacional
-- Boas práticas de defesa e prevenção
-- Consciência de segurança ofensiva e defensiva
-- Python aplicado em cenários reais
+Todos os códigos foram testados em ambiente seguro, sem causar danos reais.
 
 ---
 
-<h3 align="left">🛠 Tecnologias Utilizadas</h3>
+## 🎯 Objetivos de Aprendizado
 
-<div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"/>
-  <img width="12"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg" height="40" alt="docker logo"/>
-  <img width="12"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="linux logo"/>
-</div>
+- Compreender criptografia aplicada a ataques
+- Entender captura de eventos do sistema
+- Aprender sobre prevenção e defesa
+- Desenvolver consciência sobre segurança digital
+- Praticar Python em cenários reais
 
 ---
 
-<h3 align="left">📁 Estrutura do Projeto</h3>
+## 🛠️ Tecnologias Utilizadas
 
+- Python 3.x
+- Biblioteca `cryptography` (para criptografia)
+- Biblioteca `pynput` (para captura de teclado)
+- Biblioteca `smtplib` (para envio de emails)
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
 malware-simulado/
 │
 ├── ransomware/
-│ ├── ransomware.py
-│ ├── decryptor.py
-│ └── test_files/
+│   ├── ransomware.py
+│   ├── decryptor.py
+│   └── test_files/
 │
 ├── keylogger/
-│ ├── keylogger.py
-│ ├── keylogger_email.py
-│ └── log.txt
+│   ├── keylogger.py
+│   ├── keylogger_email.py
+│   └── log.txt
 │
 └── README.md
-
-yaml
-Copiar código
+```
 
 ---
 
-### 🦠 Ransomware Simulado
+## 🦠 Ransomware Simulado
 
-Como Funciona:
+### Como Funciona
 
-1. Gera uma chave criptográfica
-2. Percorre arquivos da pasta alvo
-3. Criptografa tudo usando Fernet (AES)
-4. Cria um aviso de resgate
+O ransomware percorre uma pasta, criptografa todos os arquivos encontrados e deixa uma mensagem de "resgate". Ele usa criptografia Fernet (AES) para tornar os arquivos ilegíveis.
 
-Instalação:
+**Fluxo de execução:**
+1. Gera uma chave criptográfica única
+2. Busca todos os arquivos na pasta alvo
+3. Criptografa cada arquivo com a chave
+4. Cria um arquivo de texto com instruções de "resgate"
+
+### Instalação
 
 ```bash
 pip install cryptography
-Execução:
+```
 
-bash
-Copiar código
+### Como Usar
+
+```bash
+# Preparar ambiente de teste
+mkdir test_files
+cd test_files
+echo "arquivo teste" > documento.txt
+
+# Executar ransomware (APENAS EM test_files!)
 python ransomware.py
-python decryptor.py  # para restaurar os arquivos
-⌨️ Keylogger Simulado
-Como Funciona:
 
-Captura teclas digitadas
+# Para descriptografar
+python decryptor.py
+```
 
-Salva em log.txt
+### O Que Aprendi
 
-Versão avançada envia por email
+- Como funciona criptografia simétrica na prática
+- A importância de manter backups offline
+- Por que ransomware é tão efetivo (criptografia forte)
+- Como implementar varredura recursiva de diretórios
 
-Instalação:
+---
 
-bash
-Copiar código
+## ⌨️ Keylogger Simulado
+
+### Como Funciona
+
+O keylogger captura todas as teclas digitadas e salva em um arquivo de texto. Versão avançada envia automaticamente por email.
+
+**Recursos implementados:**
+- Captura de teclas normais (letras, números)
+- Tratamento de teclas especiais (Enter, Space, Tab)
+- Ignora teclas de modificação (Shift, Ctrl, Alt)
+- Salvamento contínuo em arquivo
+- Envio automático por email (versão avançada)
+
+### Instalação
+
+```bash
 pip install pynput
-Execução:
+```
 
-bash
-Copiar código
+### Como Usar
+
+```bash
+# Versão básica (salva em arquivo local)
 python keylogger.py
+
+# Versão com email
 python keylogger_email.py
-<h3 align="left">🛡 Segurança & Boas Práticas</h3>
-Mantenha backups offline
+```
 
-Não clique em anexos suspeitos
+### O Que Aprendi
 
-Utilize 2FA
+- Como funcionam listeners de eventos do sistema
+- Manipulação de arquivos em tempo real
+- Automação de envio de emails com Python
+- Por que senhas visíveis são perigosas
+- Importância de usar gerenciadores de senha
 
-Gerenciadores de senha
+---
 
-Monitoramento de processos e antivírus
+## 🛡️ Defesas e Prevenção
 
-<h3 align="left">💡 Reflexões e Próximos Passos</h3>
-Ética é fundamental em Cybersegurança
+Durante este estudo, identifiquei as principais formas de proteção:
 
-Ransomware é simples, porém devastador
+### Contra Ransomware
 
-Estudar: Forense Digital, Redes, Engenharia Reversa
+**✅ Backups Regulares**
+- Faça backup em dispositivos externos
+- Mantenha uma cópia offline (disco desconectado)
+- Teste a restauração periodicamente
 
-<h3 align="left">⚖️ Responsabilidade Legal</h3>
-Uso indevido configura crime segundo:
+**✅ Antivírus Atualizado**
+- Windows Defender já oferece boa proteção
+- Mantenha definições sempre atualizadas
 
-Lei 12.737/2012 (Carolina Dieckmann)
+**✅ Cuidado com Emails**
+- Não abra anexos de remetentes desconhecidos
+- Desconfie de urgências e ameaças
+- Verifique extensões de arquivos (.exe, .js, .bat são suspeitos)
 
-Art. 154-A do Código Penal
+**✅ Atualizações do Sistema**
+- Mantenha Windows e programas atualizados
+- Patches corrigem vulnerabilidades exploradas
 
-Execute apenas com permissão e em ambiente controlado.
+### Contra Keyloggers
 
-<h3 align="left">📚 Referências</h3>
-DIO - Bootcamp Cybersegurança
+**✅ Antivírus com Proteção de Teclado**
+- Muitos antivírus detectam keyloggers
+- Use proteção de digitação bancária
 
-OWASP Top 10
+**✅ Gerenciadores de Senha**
+- Evitam digitar senhas manualmente
+- Preenchem automaticamente (sem captura)
+- Exemplos: Bitwarden, LastPass, 1Password
 
-NIST Cybersecurity Framework
+**✅ Autenticação em Dois Fatores (2FA)**
+- Mesmo com senha capturada, atacante não acessa
+- Use apps como Google Authenticator ou Authy
 
-Documentação oficial das bibliotecas
+**✅ Teclado Virtual**
+- Para transações sensíveis, use teclado na tela
+- Keyloggers baseados em software não capturam
 
-<h3 align="left">🔥 Minhas Estatísticas</h3> <div align="center"> <img src="https://github-readme-streak-stats.herokuapp.com/?user=SEU-USUARIO&hide_border=false" /> </div>
-<h3 align="left">🤝 Contribuições</h3>
-Contribuições, issues e sugestões são bem-vindas!
+**✅ Monitoramento do Sistema**
+- Verifique processos em execução (Ctrl+Shift+Esc)
+- Desconfie de programas desconhecidos
 
-<h3 align="left">👨‍💻 Autor</h3>
-Suas informações:
+---
 
-LinkedIn: https://www.linkedin.com/in/SEU-LINKEDIN
+## 💡 Reflexões Pessoais
 
-GitHub: https://github.com/SEU-USUARIO
+### O Que Este Projeto Me Ensinou
 
-Email: SEU-EMAIL
+**1. Segurança não é paranoia, é necessidade**
 
-<div align="center">
-"A segurança da informação não é um produto, é um processo." — Bruce Schneier
-✨ Use seus conhecimentos para proteger, não atacar.
+Antes desse curso, eu subestimava o quão vulnerável um sistema pode ser. Agora entendo que qualquer descuido pode abrir portas para ataques sérios.
 
-</div> ```
+**2. Conhecimento é a melhor defesa**
+
+Ao entender como ataques funcionam, consigo identificar padrões suspeitos no dia a dia. Agora penso duas vezes antes de clicar em qualquer link ou baixar arquivos.
+
+**3. A simplicidade dos ataques é assustadora**
+
+Não precisa ser um gênio da computação para criar malware. Com poucas linhas de código, dá pra causar estragos enormes. Isso me fez valorizar ainda mais profissionais de segurança.
+
+**4. Prevenção é mais barata que recuperação**
+
+Investir tempo em backups e boas práticas é infinitamente mais fácil do que tentar recuperar dados perdidos ou pagar resgates (que nem sempre funcionam).
+
+**5. Ética é fundamental**
+
+Com esse conhecimento vem uma responsabilidade enorme. Sei como atacar, mas escolho usar isso para proteger e educar outras pessoas.
+
+### Próximos Passos
+
+- Estudar análise de malware reversa
+- Aprender sobre forense digital
+- Me aprofundar em redes e firewall
+- Contribuir com projetos open source de segurança
+
+---
+
+## ⚖️ Responsabilidade Legal
+
+**Este projeto é educacional.** Uso indevido pode configurar crime:
+
+- **Art. 154-A do Código Penal**: Invasão de dispositivo informático
+- **Lei 12.737/2012** (Lei Carolina Dieckmann): Crimes informáticos
+- **Marco Civil da Internet**: Violação de privacidade
+
+Pena: até 5 anos de reclusão + multa
+
+**Teste apenas em:**
+- Seus próprios dispositivos
+- Máquinas virtuais isoladas
+- Ambientes controlados com permissão
+
+---
+
+## 📚 Referências e Materiais
+
+- [DIO - Bootcamp Cybersegurança](https://www.dio.me/)
+- [Documentação Cryptography](https://cryptography.io/)
+- [Documentação pynput](https://pynput.readthedocs.io/)
+- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+- [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework)
+
+---
+
+## 🤝 Contribuições
+
+Este é um projeto educacional em constante evolução. Sugestões de melhorias são bem-vindas!
+
+Se você também está estudando cybersegurança, fique à vontade para:
+- Fazer fork do projeto
+- Sugerir melhorias
+- Compartilhar suas experiências
+- Reportar bugs (caso encontre)
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido com 🧠 durante minha jornada de aprendizado em Cybersegurança.
+
+**Conecte-se comigo:**
+- LinkedIn: [seu-perfil]
+- GitHub: [seu-usuario]
+- Email: [seu-email]
+
+---
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT - veja o arquivo LICENSE para detalhes.
+
+---
+
+## 🙏 Agradecimentos
+
+- **DIO** por proporcionar o bootcamp
+- Instrutores e mentores do curso
+- Comunidade de cybersegurança brasileira
+- Todos que contribuem com conhecimento open source
+
+---
+
+**"A segurança da informação não é um produto, é um processo."** - Bruce Schneier
+
+*Lembre-se: use seus conhecimentos para o bem. A internet já tem hackers demais, precisamos de mais defensores.*
